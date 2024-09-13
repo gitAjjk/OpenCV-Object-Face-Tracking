@@ -5,18 +5,21 @@ Simple Cam Test - BGR and Gray
 Adapted by Marcelo Rovai - MJRoBot.org @8Feb18
 '''
 
+
 import numpy as np
-import cv2
+print("numpy v" + np.__version__) #numpy v2.0.2
+import cv2 # ModuleNotFoundError: No module named 'cv2
+print("cv2 v" + cv2.__version__)
 
 cap = cv2.VideoCapture(0)
  
 while(True):
     ret, frame = cap.read()
     frame = cv2.flip(frame, -1)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
-    cv2.imshow('frame', frame)
-    cv2.imshow('gray', gray)
+    cv2.imshow('frame', frame) # Can't initialize GTK backend in function 'cvInitSystem'
+#    cv2.imshow('gray', gray)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
